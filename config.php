@@ -50,4 +50,15 @@
 
     }
 
+    function hapus($id) {
+        global $connection;
+
+
+        $query = "DELETE  FROM buku WHERE id = $id";
+        mysqli_query($connection , $query);
+
+        return mysqli_affected_rows($connection);
+
+    }
+
 ?>

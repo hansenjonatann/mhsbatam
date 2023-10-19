@@ -49,6 +49,8 @@
       <th scope="col">Nama Buku</th>
       <th scope="col">Harga</th>
       <th scope="col">Stok</th>
+      <th scope="col">Aksi</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -69,6 +71,9 @@
       <td><?= $item['NamaBuku'] ?></td>
       <td><?= $item['Harga'] ?></td>
       <td><?= $item['Stok'] ?></td>
+      <td>
+        <a href="hapus.php?id=<?php echo $item['id'] ?>" class="btn btn-danger btn-md">Hapus</a>
+      </td>
     </tr>
     <?php endforeach; ?>
   </tbody>
