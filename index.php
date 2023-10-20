@@ -4,6 +4,10 @@
 
     $buku = query("SELECT * FROM buku");
 
+    if(isset($_POST['cari'])) {
+      $buku = cari($_POST['keyword']);
+    }
+
 ?>
 
 <!doctype html>
@@ -39,7 +43,11 @@
 </nav>
 
 <!-- Bagian Table -->
-<div class="container">
+<div class="container mt-5">
+<form class="d-flex" role="search" action="" method="post">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="keyword">
+        <button class="btn btn-success" type="submit" name="cari">Cari</button>
+      </form>
 <table class="table">
   <thead>
     <tr>

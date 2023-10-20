@@ -78,4 +78,9 @@
         return mysqli_affected_rows($connection);
     }
 
+    function cari($keyword) {
+        $query = "SELECT * FROM buku WHERE NamaBuku LIKE '%$keyword%'";
+
+        return query($query);
+    }
 ?>
