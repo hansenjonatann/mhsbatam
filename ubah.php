@@ -2,10 +2,13 @@
 
     require 'config.php';
 
-    
+    $id = $_GET['id'];
+
+
+    $buku = query("SELECT * FROM buku")[0];
 
     if(isset($_POST['kirim'])) {
-        if(tambah($_POST) > 0 ) {
+        if(ubah($_POST) > 0 ) {
             echo "<script>
                     alert('Data berhasil diubah!')
                     window.location.href = 'admin.php'
@@ -25,15 +28,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Unibookstore - Tambah Data</title>
+    <title>Unibookstore - Update Data</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body>
     <div class="container">
     <form action="" method="post">
+      <input type="hidden" name="id" value="<?= $buku['id'] ?>">
   <div class="mb-3">
     <label for="namaBuku" class="form-label">Nama Buku</label>
-    <input type="text" class="form-control" id="namaBuku" name="namabuku"  required >
+    <input type="text" class="form-control" id="namaBuku" name="namabuku" value="<?= $buku['NamaBuku'] ?>"   required>
   </div>
   <div class="mb-3">
     <label for="kategoriBuku" class="form-label">Kategori Buku</label>
@@ -44,11 +48,11 @@
   </div>
   <div class="mb-3">
     <label for="hargaBuku" class="form-label">Harga Buku</label>
-   <input type="text" name="hargabuku" id="hargaBuku" class="form-control" >
+   <input type="text" name="hargabuku" id="hargaBuku" class="form-control" value="<?= $buku['Harga'] ?>">
   </div>
   <div class="mb-3">
     <label for="stokBuku" class="form-label">Stok Buku</label>
-   <input type="text" name="stokbuku" id="stokBuku" class="form-control">
+   <input type="text" name="stokbuku" id="stokBuku" class="form-control" value="<?= $buku['Stok'] ?>">
   </div>
   <div class="mb-3">
     <label for="penerbitBuku" class="form-label">Stok Buku</label>

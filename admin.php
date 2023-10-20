@@ -72,6 +72,7 @@
       <td><?= $item['Harga'] ?></td>
       <td><?= $item['Stok'] ?></td>
       <td>
+        <a href="ubah.php?id=<?php echo $item['id'] ?>" class="btn btn-success btn-md">Ubah</a>
         <a href="hapus.php?id=<?php echo $item['id'] ?>" class="btn btn-danger btn-md">Hapus</a>
       </td>
     </tr>

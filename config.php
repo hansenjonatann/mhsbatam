@@ -61,4 +61,21 @@
 
     }
 
+    function ubah($data) {
+        global $connection;
+
+        $id = $_GET['id'];
+        $namaBuku = $data['namabuku'];
+        // $kategoriBuku = $data['kategoribuku'];
+        $hargaBuku = $data['hargabuku'];
+        $stokBuku = $data['stokbuku'];
+        // $penerbitBuku = $data['penerbitbuku'];
+
+        $query = "UPDATE buku SET NamaBuku = '$namaBuku' , Harga = '$hargaBuku' , Stok = '$stokBuku' WHERE id = '$id'";
+
+        mysqli_query($connection , $query);
+
+        return mysqli_affected_rows($connection);
+    }
+
 ?>
